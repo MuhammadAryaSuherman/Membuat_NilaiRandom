@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai Random</title>
+    <script>
+        // Membuat array dengan 100 nilai random (1 sampai 50)
+        let arr = [];
+        for (let i = 0; i < 100; i++) {
+            arr.push(Math.floor(Math.random() * 50) + 1);
+        }
+
+        // Membuat array dengan 50 nilai genap random
+        let arrGenap = [];
+        for (let i = 0; i < 50; i++) {
+            arrGenap.push(Math.floor(Math.random() * 25) * 2 + 2);
+        }
+
+        // Membuat array dengan 50 nilai ganjil random
+        let arrGanjil = [];
+        for (let i = 0; i < 50; i++) {
+            arrGanjil.push(Math.floor(Math.random() * 25) * 2 + 1);
+        }
+
+        // Fungsi untuk mendapatkan nilai min
+        function getMin(arr) {
+            let min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+
+        // Fungsi untuk mendapatkan nilai max
+        function getMax(arr) {
+            let max = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        // Fungsi untuk mendapatkan nilai total
+        function getTotal(arr) {
+            let total = 0;
+            for (let i = 0; i < arr.length; i++) {
+                total += arr[i];
+            }
+            return total;
+        }
+
+        // Fungsi untuk mendapatkan nilai rata-rata
+        function getRataRata(arr) {
+            let total = getTotal(arr);
+            let rataRata = total / arr.length;
+            return rataRata;
+        }
+
+        // Mendapatkan nilai min, max, total, dan rata-rata pada setiap array
+        let minGenap = getMin(arrGenap);
+        let maxGenap = getMax(arrGenap);
+        let totalGenap = getTotal(arrGenap);
+        let rataRataGenap = getRataRata(arrGenap);
+
+        let minGanjil = getMin(arrGanjil);
+        let maxGanjil = getMax(arrGanjil);
+        let totalGanjil = getTotal(arrGanjil);
+        let rataRataGanjil = getRataRata(arrGanjil);
+
+        // Ubah nilai-nilai sesuai dengan ketentuan
+        if (minGenap <= minGanjil) {
+            minGenap = minGanjil + 1;
+        }
+        if (maxGenap >= maxGanjil) {
+            maxGanjil = maxGenap + 1;
+        }
+        if (totalGenap != totalGanjil) {
+            totalGenap = totalGanjil;
+        }
+        if (rataRataGenap >= rataRataGanjil) {
+            rataRataGanjil = rataRataGenap + 1;
+        }
+
+        console.log("Array dengan jumlah index 100:", arr);
+        console.log("Array genap dengan jumlah index 50:", arrGenap);
+        console.log("Array ganjil dengan jumlah index 50:", arrGanjil);
+        console.log("Min pada array genap:", minGenap);
+        console.log("Max pada array genap:", maxGenap);
+        console.log("Total pada array genap:", totalGenap);
+        console.log("Rata-rata pada array genap:", rataRataGenap);
+        console.log("Min pada array ganjil:", minGanjil);
+        console.log("Max pada array ganjil:", maxGanjil);
+        console.log("Total pada array ganjil:", totalGanjil);
+        console.log("Rata-rata pada array ganjil:", rataRataGanjil);
+
+    </script>
+</head>
+
+<body>
+    <h1>Nilai random</h1>
+
+</body>
+
+</html>
